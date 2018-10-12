@@ -44,7 +44,7 @@ Sync WordPress and GatherContent by WP CLI.
 **Work in progress: Not yet published to packagist.org**
 
 ```bash
-$ wp package install itinerisltd/gathercontent-sync-command
+$ wp package install itinerisltd/gathercontent-sync-command:@stable
 ```
 
 ## Usage
