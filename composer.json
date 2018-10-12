@@ -1,0 +1,67 @@
+{
+  "name": "itinerisltd/gathercontent-sync-command",
+  "type": "wp-cli-package",
+  "description": "Sync WordPress and GatherContent.",
+  "keywords": [
+    "wordpress",
+    "wp",
+    "wp-cli",
+    "gathercontent"
+  ],
+  "homepage": "https://github.com/ItinerisLtd/gathercontent-sync-command",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Itineris Limited",
+      "email": "hello@itineris.co.uk",
+      "homepage": "https://itineris.co.uk/",
+      "role": "Company"
+    },
+    {
+      "name": "Tang Rufus",
+      "email": "tangrufus@gmail.com",
+      "homepage": "https://typist.tech/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "wp-cli/wp-cli": "^1.5 || ^2.0"
+  },
+  "require-dev": {
+    "automattic/vipwpcs": "^0.3.0",
+    "roave/security-advisories": "dev-master",
+    "wp-coding-standards/wpcs": "^1.0"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Itineris\\GatherContentSyncCommand\\": "src/"
+    },
+    "files": [
+      "command.php"
+    ]
+  },
+  "prefer-stable": true,
+  "scripts": {
+    "check-style": "phpcs --colors -p",
+    "pretag": [
+      "composer update --no-suggest",
+      "@check-style",
+      "doctoc README.md",
+      "github_changelog_generator --no-verbose"
+    ]
+  },
+  "support": {
+    "email": "hello@itineris.co.uk",
+    "issues": "https://github.com/ItinerisLtd/gathercontent-sync-command/issues",
+    "source": "https://github.com/ItinerisLtd/gathercontent-sync-command"
+  }
+}
