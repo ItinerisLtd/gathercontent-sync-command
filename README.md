@@ -15,6 +15,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
   - [Pulling from GatherContent](#pulling-from-gathercontent)
+- [Cron Jobs](#cron-jobs)
 - [FAQ](#faq)
   - [Will you add support for older PHP versions?](#will-you-add-support-for-older-php-versions)
   - [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
@@ -41,10 +42,13 @@ Sync WordPress and GatherContent by WP CLI.
 
 ## Installation
 
-**Work in progress: Not yet published to packagist.org**
-
 ```bash
+# For WP CLI v2.0 or later:
 $ wp package install itinerisltd/gathercontent-sync-command:@stable
+
+# For WP CLI v1.5.x:
+# Check for latest version!
+$ wp package install itinerisltd/gathercontent-sync-command:^0.1.0
 ```
 
 ## Usage
@@ -64,6 +68,24 @@ Requirements:
 - [WP Ajax](https://codex.wordpress.org/AJAX_in_Plugins) is working
 
 If all the requirements are met, the command schedules pulling events.
+
+## Cron Jobs
+
+Use case: Pull content from GatherContent to WordPress every 5 minutes with system cron.
+
+```
+$ crontab -e
+
+# Add a new cron task at the end
+*/5 * * * * /usr/local/bin/wp gather-content-sync pull --yes --path=/www/my_site/public >/dev/null 2>&1
+```
+
+Tips:
+ - Specific full path to wp cli (e.g: `/usr/local/bin/wp`)
+ - Specific full path to WordPress web root (`--path=/www/my_site/public`)
+ - Skip confirmation by `--yes`
+
+Learn more on [How to Write a Cron Job and Manage Server Crons at Kinsta](https://kinsta.com/knowledgebase/how-to-write-a-cron-job/).
 
 ## FAQ
 
